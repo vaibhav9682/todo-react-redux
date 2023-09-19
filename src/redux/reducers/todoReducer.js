@@ -32,6 +32,28 @@ const todoSlice = createSlice({
     }
 });
 
+export const todoReducer = todoSlice.reducer;
+export const todoAction =  todoSlice.actions;
+
+// todo selector
+export const todoSelector = (state)=>state.todoReducer.todos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

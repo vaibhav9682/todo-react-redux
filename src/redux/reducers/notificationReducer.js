@@ -1,3 +1,5 @@
+import { todoAction } from "./todoReducer";
+import { noteAction } from "./noteReducer";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
@@ -15,13 +17,22 @@ const notificationSlice = createSlice({
         }
 
     },
-    extraReducers: {
-        "todo/add": (state) => {
-            state.message = "todo is created!"
-        },
-        "note/add": (state) => {
-            state.message = "Note is created!"
-        }
+    // extraReducers: {
+    //     "todo/add": (state) => {
+    //         state.message = "todo is created!"
+    //     },
+    //     "note/add": (state) => {
+    //         state.message = "Note is created!"
+    //     }
+    // }
+
+    extraReducers: (builder) => {
+        builder.addCase(todoAction.add, (state, action) => {
+            state.message = "todo is created"
+        })
+        builder.addCase(noteAction.add, (state, action) => {
+            state.message = "Note is created"
+        })
     }
 })
 

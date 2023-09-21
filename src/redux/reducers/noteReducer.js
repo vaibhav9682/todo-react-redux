@@ -7,11 +7,11 @@ const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
     notes: [{
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam'
-        , createdOn: new Date()
+        , createdOn: new Date().toLocaleDateString()
     },
     {
         text: 'Aliquam erat volutpat. Ut tincidunt, velit vel aliquam commodo, tellus urna auctor tortor, non ultrices libero ante sed magna.'
-        , createdOn: new Date()
+        , createdOn: new Date().toLocaleDateString()
     }]
 };
 
@@ -24,7 +24,7 @@ const noteSlice = createSlice({
         add: (state, action) => {
             state.notes.push({
                 text: action.payload,
-                createdOn: new Date()
+                createdOn: new Date().toLocaleDateString()
             })
         },
         delete: (state, action) => {
@@ -40,7 +40,7 @@ export const noteAction = noteSlice.actions;
 
 // noteSelector
 
-export const noteSelector = (state)=> state.noteReducer.notes;
+export const noteSelector = (state) => state.noteReducer.notes;
 
 
 
